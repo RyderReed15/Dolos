@@ -207,7 +207,7 @@
       <MapExports>true</MapExports>
       <LargeAddressAware>true</LargeAddressAware>
       <Profile>false</Profile>
-      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);</AdditionalDependencies>
     </Link>
     <ClCompile>
       <TreatWarningAsError>false</TreatWarningAsError>
@@ -266,18 +266,9 @@
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Aimbot.c" />
-    <ClCompile Include="Controller.c" />
     <ClCompile Include="main.c" />
-    <ClCompile Include="Vector3.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Aimbot.h" />
-    <ClInclude Include="Controller.h" />
-    <ClInclude Include="main.h" />
-    <ClInclude Include="Offsets.h" />
-    <ClInclude Include="Utils.h" />
-    <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
