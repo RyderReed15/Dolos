@@ -8,7 +8,7 @@
 #define IO_READ_MEM CTL_CODE(FILE_DEVICE_UNKNOWN, 0x701, METHOD_BUFFERED, FILE_SPECIAL_ACCESS)
 #define IO_WRITE_MEM CTL_CODE(FILE_DEVICE_UNKNOWN, 0x702, METHOD_BUFFERED, FILE_SPECIAL_ACCESS)
 
-#define process "csgo";
+
 
 enum STATUS { STATUS_NO_GAME, STATUS_SUCESS, STATUS_NO_DRIVER };
 
@@ -67,7 +67,6 @@ private:
 template <typename T>
 T DriverInterface::ReadMemory(ULONG PID, ULONG Address, SIZE_T Size) {
 	if (driverHandle == INVALID_HANDLE_VALUE) {
-		//std::cout << "Invalid" << std::endl;
 		int returnCode = STATUS_NO_DRIVER;
 		return *(T*)&returnCode;
 	}
@@ -124,13 +123,12 @@ int DriverInterface::WriteMemory(ULONG PID, ULONG Address, T Value, DWORD Size) 
 	write.Size = Size;
 	//std::cout << Value << std::endl;
 	return (DeviceIoControl(driverHandle, IO_WRITE_MEM, &write, sizeof(write), 0, 0, &Bytes, NULL));
-		//std::cout << ReadMemory<T>(PID, Address, sizeof(T)) << std::endl;
 	
 
 }
 // Opens a handle to the driver to read and write memory
 DriverInterface::DriverInterface() {
-	driverHandle = CreateFileA("\\\\.\\InfoDriver", GENERIC_READ | GENERIC_WRITE,
+	driverHandle = CreateFileA("\\\\.\\DolosDriver", GENERIC_READ | GENERIC_WRITE,
 		FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);
 }
 /*
