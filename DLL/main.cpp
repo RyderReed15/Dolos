@@ -63,8 +63,8 @@ void loadMap() {
 		mapname += temp;
 	}
 
-
-	bsp.load_map("D:\\Games\\SteamLibrary\\steamapps\\common\\Counter-Strike Global Offensive\\csgo\\maps", mapname + ".bsp");
+	//input your own csgo dir
+	bsp.load_map("Counter-Strike Global Offensive\\csgo\\maps", mapname + ".bsp");
 }
 /*
  Exposed function for updating the settings from the GUI
